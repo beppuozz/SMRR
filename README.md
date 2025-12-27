@@ -1,6 +1,29 @@
 # SMRR - Folder for "Simulazioni Montecarlo di Rivelatori di Radiazione" course
 To run any non Geant4 programm use the following command line "gdb -batch -ex "run" ./test1"
 
+### CERN Geant4 install from source
+```bash
+$ git clone https://gitlab.cern.ch/geant4/geant4.git
+$ mkdir geant4_install
+$ mkdir geant4_build && cd root_build
+$ cmake -DCMAKE_INSTALL_PREFIX=/home/ubuntu/SMRR/GEANT4/geant4_install \
+      -DGEANT4_INSTALL_DATA=ON \
+      -DGEANT4_USE_QT=ON \
+      -DGEANT4_USE_OPENGL_X11=ON \  
+      /home/ubuntu/SMRR/GEANT4/geant4
+$ cmake --build . -- -j$(nproc)
+$ cmake --install .
+```
+---
+### CERN Root install from source
+```bash
+$ git clone --branch master https://github.com/root-project/root.git
+$ mkdir root_build && cd root_build
+$ cmake ../root -DCMAKE_INSTALL_PREFIX=$HOME/root -Dpython3=ON -Dx11=ON
+$ cmake --build . -- -j$(nproc)
+$ cmake --install .
+```
+---
 ### Folder Structure
 TaskNmr
 * TaskNmr --> prima sottocartella, contiene i file principali
