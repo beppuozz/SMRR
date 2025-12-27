@@ -20,3 +20,7 @@ $ cd example_build
 $ cmake -DCMAKE_PREFIX_PATH=/home/you/geant4-install /path/to/example
 $ make -j4 VERBOSE=1
 ```
+\\
+---
+### LaBr3
+Folder for Bromuro di Lantanio simulation
