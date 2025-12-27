@@ -1,6 +1,10 @@
 # SMRR - Folder for "Simulazioni Montecarlo di Rivelatori di Radiazione" course
 To run any non Geant4 programm use the following command line "gdb -batch -ex "run" ./test1"
 
+### WSL install (linux subsystem with Ubuntu distr)
+Visit https://www.boot.dev/lessons/3d1c6ce3-bcc3-43a9-b2ae-809a968d524a
+---
+
 ### CERN Geant4 install from source
 ```bash
 $ git clone https://gitlab.cern.ch/geant4/geant4.git
