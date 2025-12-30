@@ -51,9 +51,8 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
 
     /*================================================== DECLARE GEOMETRY PARAMETERS ==================================================*/
         G4double halfWorldLenght; //metà della dimensione del mondo
-        
-        G4double halfLaBr3Det_x;
-        G4double halfLaBr3Det_y;
+
+        G4double RadiusLaBr3Det;
         G4double halfLaBr3Det_z;
 
         DetectorMessenger* detectorMessenger; //puntatore al messenger del rilevatore
