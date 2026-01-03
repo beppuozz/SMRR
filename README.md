@@ -59,12 +59,30 @@ $ export G4NEUTRONHPDATA=/home/ubuntu/SMRR/GEANT4/geant4_install/share/Geant4/da
 $ export G4SAIDXSDATA=/home/ubuntu/SMRR/GEANT4/geant4_install/share/Geant4/data/G4SAIDDATA2.0
 $ export G4LEDATA=/home/ubuntu/SMRR/GEANT4/geant4_install/share/Geant4/data/G4EMLOW8.8
 ```
-
+---
 ### How to execute
 ```bash
 $ source /home/ricca/SMRR/GEANT4/geant4_install/bin/geant4.sh
 $ ./example
 ```
+You can make Geant4’s environment load automatically, so you don’t have to type "source /home/ricca/SMRR/GEANT4/geant4_install/bin/geant4.sh" every time.
+
+1. Open .bashrc file
+```bash
+$ nano ~/.bashrc
+```
+2. Add this line at the end of the file "source /home/ricca/SMRR/GEANT4/geant4_install/bin/geant4.sh"
+3. Save and exit (CTRL+O,ENTER,CTRL+X)
+4. Reload it
+```bash
+$ source ~/.bashrc
+```
+5. Open new terminal and run
+```bash
+$ geant4-config --version
+```
+If it prints something sensible → ✅ done.
+
 ---
 
 ### To compile with ROOT

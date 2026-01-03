@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------------------------
 # Set up the project
 
-cmake_minimum_required(VERSION 2.6 FATAL ERROR) #compatibilità dela versione di CMake
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(LaBr3) # nome del progetto, *1
 #------------------------------------------------------------------------------------------------

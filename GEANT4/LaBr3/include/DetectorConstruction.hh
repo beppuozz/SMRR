@@ -5,7 +5,6 @@
 #include "G4VUserDetectorConstruction.hh" //classe virtuale da cui derivo il detector
 #include "G4ThreeVector.hh"              //per definire i vettori 3D
 #include "G4SystemOfUnits.hh"          //per usare le unità di misura di Geant4
-#include "DetectorMessenger.hh"         
 /*================================================== CLASSES ==================================================*/
 
 class G4LogicalVolume;
@@ -37,7 +36,7 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
     /*================================================== MEMBERS ==================================================*/
     private:
         G4Material* vacuum; //puntatore al materiale vuoto
-        G4Material* LaBr3_mat; //puntatore al materiale del rilevatore LaBr3
+        G4Material* LaBr3_Mat; //puntatore al materiale del rilevatore LaBr3
 
     /*================================================== DECLARE LOGICAL VOLUMES ==================================================*/
         //! Global Mother Volume (World)

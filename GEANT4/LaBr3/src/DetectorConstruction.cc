@@ -2,7 +2,7 @@
 
 /*================================================== INCLUDES ==================================================*/
 #include "DetectorConstruction.hh"
-#include "DetectorMessenger.hh"
+#include "G4VUserDetectorConstruction.hh"
 #include "G4Material.hh"               //per definire i materiali
 #include "G4Box.hh"                    //per costruire volumi a forma di scatola
 #include "G4Tubs.hh"                   //per costruire volumi a forma di cilindro
@@ -14,6 +14,7 @@
 #include "G4VisAttributes.hh"          //per definire gli attributi di visualizzazione
 #include "G4Colour.hh"                 //per definire i colori
 #include "G4VPhysicalVolume.hh"
+#include "G4SystemOfUnits.hh"          
 
 /*
 #include "G4SensitiveDetector.hh"   //per i rivelatori sensibili
@@ -24,11 +25,11 @@
 DetectorConstruction::DetectorConstruction(): 
     vacuum(0), //inizializzo i puntatori a 0
     LaBr3_Mat(0),
-    logicWorld(0),
-    halfWorldLength(0.5*Km), //inizializzo la metà della dimensione del mondo a 0.5 km
+    LogicWorld(0),
+    halfWorldLenght(0.5*km) //inizializzo la metà della dimensione del mondo a 0.5 km
     {
         //Create a detector messenger, defines custom UI commands for this class
-        messenger = new DetectorMessenger(this); //this punta all'istanza corrente di DetectorConstruction
+       // messenger = new DetectorMessenger(this); //this punta all'istanza corrente di DetectorConstruction
 
         //Define materials
         DefineMaterials();
@@ -40,7 +41,7 @@ DetectorConstruction::DetectorConstruction():
 /*================================================== DESTRUCTOR ==================================================*/
 DetectorConstruction::~DetectorConstruction()
     {
-        delete messenger; //dealloco il messenger del rilevatore
+        //delete messenger; //dealloco il messenger del rilevatore
         delete LaBr3_Mat; //dealloco il materiale del rilevatore LaBr3
     }
 
@@ -90,14 +91,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
         // Definitions of solids, logical volumes and physical volumes
         
         //--World Volume--//
-        G4GeometryManager::GetInstance()->SetWorldMaximumExtent(halfWorldLength*2.); //imposto la massima estensione del mondo
-        G4cout << "World maximum extent = " << G4GeometryManager::GetInstance()->GetWorldMaximumExtent()/m << " m" << G4endl;
-        G4cout << "Computed Tolerace = " << G4GeometryManager::GetInstance()->GetSurfaceTolerance()/mm << " mm" << G4endl;
+        G4GeometryManager::GetInstance()->SetWorldMaximumExtent(halfWorldLenght*2.); //imposto la massima estensione del mondo
+        //G4cout << "World maximum extent = " << G4GeometryManager::GetInstance()->GetWorldMaximumExtent()/m << " m" << G4endl;
+        //G4cout << "Computed Tolerace = " << G4GeometryManager::GetInstance()->GetSurfaceTolerance()/mm << " mm" << G4endl;
 
         //Define World Solid
-        G4Box* solidWorld = new G4Box("World", halfWorldLength, halfWorldLength, halfWorldLength); //creo il solido del mondo
+        G4Box* solidWorld = new G4Box("World", halfWorldLenght, halfWorldLenght, halfWorldLenght); //creo il solido del mondo
         //Define World Logical Volume
-        logicWorld = new G4LogicalVolume(solidWorld, vacuum, "World", 
+        LogicWorld = new G4LogicalVolume(solidWorld, vacuum, "World", 
             0, // Field manager
              0, // Sensitive detector
               0, // User limits
@@ -105,7 +106,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                ); //creo il volume logico del mondo
 
         //Define World Physical Volume
-        G4VPhysicalVolume* physiWorld = new G4PVPlacement(0, G4ThreeVector(0,0,0), logicWorld, "World", 
+        G4VPhysicalVolume* physiWorld = new G4PVPlacement(0, G4ThreeVector(0,0,0), LogicWorld, "World", 
         0, // its mother volume
         false, // no boolean operation
         0 // copy number
@@ -120,7 +121,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
             white   (1.0, 1.0, 1.0),
             brown   (0.6, 0.4, 0.2);
 
-        logicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); //imposto il mondo come invisibile
+        LogicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); //imposto il mondo come invisibile
 
         Construct_LaBr3Detector();
 
@@ -130,7 +131,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 /*================================================== PHYSICAL VOLUMES ==================================================*/
 
-G4PhysicalVolume* DetectorConstruction::Construct_LaBr3Detector()
+G4VPhysicalVolume* DetectorConstruction::Construct_LaBr3Detector()
 {
     G4Color 
             green   (0.0, 1.0, 0.0),
@@ -143,12 +144,14 @@ G4PhysicalVolume* DetectorConstruction::Construct_LaBr3Detector()
 
     G4Tubs* solidLaBr3Det = new G4Tubs("solidLaBr3Det", 0, RadiusLaBr3Det, halfLaBr3Det_z,0*deg,360*deg); //solid
 
-    logicalLaBr3 = new G4LogicalVolume(solidLaBr3Det, LaBr3_Mat, "logical_LaBr3"); //logical
+    LogicLaBr3 = new G4LogicalVolume(solidLaBr3Det, LaBr3_Mat, "logical_LaBr3"); //logical
 
     G4int LaBr3_copynum = 1; //how many?
 
-    physicalLaBr3 = new G4PVPlacement(0, G4ThreeVector(0,0,0), logicalLaBr3, "physi_LaBr3", logicWorld, false, LaBr3_copynum); //physical
-    logicalLaBr3->SetVisAttributes(new G4VisAttributes(green));
+    physiLaBr3 = new G4PVPlacement(0, G4ThreeVector(0,0,0), LogicLaBr3, "physi_LaBr3", LogicWorld, false, LaBr3_copynum); //physical
+    LogicLaBr3->SetVisAttributes(new G4VisAttributes(green));
+
+    return physiLaBr3;
 }
 
 
