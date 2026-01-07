@@ -97,10 +97,38 @@ CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/SMRR/GEANT4/LaBr3/src/DetectorConstruction.cc -o CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.s
 
+CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o: CMakeFiles/exampleLaBr3.dir/flags.make
+CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o: /home/ubuntu/SMRR/GEANT4/LaBr3/src/EventAction.cc
+CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o: CMakeFiles/exampleLaBr3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o -MF CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o.d -o CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o -c /home/ubuntu/SMRR/GEANT4/LaBr3/src/EventAction.cc
+
+CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/SMRR/GEANT4/LaBr3/src/EventAction.cc > CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.i
+
+CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/SMRR/GEANT4/LaBr3/src/EventAction.cc -o CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.s
+
+CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o: CMakeFiles/exampleLaBr3.dir/flags.make
+CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o: /home/ubuntu/SMRR/GEANT4/LaBr3/src/LaBr3Hit.cc
+CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o: CMakeFiles/exampleLaBr3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o -MF CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o.d -o CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o -c /home/ubuntu/SMRR/GEANT4/LaBr3/src/LaBr3Hit.cc
+
+CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/SMRR/GEANT4/LaBr3/src/LaBr3Hit.cc > CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.i
+
+CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/SMRR/GEANT4/LaBr3/src/LaBr3Hit.cc -o CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.s
+
 CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/exampleLaBr3.dir/flags.make
 CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o: /home/ubuntu/SMRR/GEANT4/LaBr3/src/PrimaryGeneratorAction.cc
 CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/exampleLaBr3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o -c /home/ubuntu/SMRR/GEANT4/LaBr3/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -111,10 +139,24 @@ CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/SMRR/GEANT4/LaBr3/src/PrimaryGeneratorAction.cc -o CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.s
 
+CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o: CMakeFiles/exampleLaBr3.dir/flags.make
+CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o: /home/ubuntu/SMRR/GEANT4/LaBr3/src/RunAction.cc
+CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o: CMakeFiles/exampleLaBr3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o -MF CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o.d -o CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o -c /home/ubuntu/SMRR/GEANT4/LaBr3/src/RunAction.cc
+
+CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/SMRR/GEANT4/LaBr3/src/RunAction.cc > CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.i
+
+CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/SMRR/GEANT4/LaBr3/src/RunAction.cc -o CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.s
+
 CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o: CMakeFiles/exampleLaBr3.dir/flags.make
 CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o: /home/ubuntu/SMRR/GEANT4/LaBr3/src/SensitiveDetector.cc
 CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o: CMakeFiles/exampleLaBr3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o -MF CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o.d -o CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o -c /home/ubuntu/SMRR/GEANT4/LaBr3/src/SensitiveDetector.cc
 
 CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.i: cmake_force
@@ -129,7 +171,10 @@ CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.s: cmake_force
 exampleLaBr3_OBJECTS = \
 "CMakeFiles/exampleLaBr3.dir/LaBr3.cc.o" \
 "CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.o" \
+"CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o" \
+"CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o" \
 "CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o" \
+"CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o" \
 "CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o"
 
 # External object files for target exampleLaBr3
@@ -137,7 +182,10 @@ exampleLaBr3_EXTERNAL_OBJECTS =
 
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/LaBr3.cc.o
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.o
+exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o
+exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.o
+exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/src/SensitiveDetector.cc.o
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/build.make
 exampleLaBr3: /home/ubuntu/SMRR/GEANT4/geant4_install/lib/libG4Tree.so
@@ -197,7 +245,7 @@ exampleLaBr3: /home/ubuntu/SMRR/GEANT4/geant4_install/lib/libG4clhep.so
 exampleLaBr3: /home/ubuntu/SMRR/GEANT4/geant4_install/lib/libG4ptl.so.3.0.0
 exampleLaBr3: /home/ubuntu/SMRR/GEANT4/geant4_install/lib/libG4zlib.so
 exampleLaBr3: CMakeFiles/exampleLaBr3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable exampleLaBr3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/SMRR/GEANT4/LaBr3_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable exampleLaBr3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleLaBr3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

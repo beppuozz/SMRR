@@ -222,6 +222,54 @@ src/DetectorConstruction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
+src/EventAction.o: src/EventAction.cc.o
+.PHONY : src/EventAction.o
+
+# target to build an object file
+src/EventAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.o
+.PHONY : src/EventAction.cc.o
+
+src/EventAction.i: src/EventAction.cc.i
+.PHONY : src/EventAction.i
+
+# target to preprocess a source file
+src/EventAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.i
+.PHONY : src/EventAction.cc.i
+
+src/EventAction.s: src/EventAction.cc.s
+.PHONY : src/EventAction.s
+
+# target to generate assembly for a file
+src/EventAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/EventAction.cc.s
+.PHONY : src/EventAction.cc.s
+
+src/LaBr3Hit.o: src/LaBr3Hit.cc.o
+.PHONY : src/LaBr3Hit.o
+
+# target to build an object file
+src/LaBr3Hit.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.o
+.PHONY : src/LaBr3Hit.cc.o
+
+src/LaBr3Hit.i: src/LaBr3Hit.cc.i
+.PHONY : src/LaBr3Hit.i
+
+# target to preprocess a source file
+src/LaBr3Hit.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.i
+.PHONY : src/LaBr3Hit.cc.i
+
+src/LaBr3Hit.s: src/LaBr3Hit.cc.s
+.PHONY : src/LaBr3Hit.s
+
+# target to generate assembly for a file
+src/LaBr3Hit.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/LaBr3Hit.cc.s
+.PHONY : src/LaBr3Hit.cc.s
+
 src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
 .PHONY : src/PrimaryGeneratorAction.o
 
@@ -245,6 +293,30 @@ src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
 src/PrimaryGeneratorAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
+
+src/RunAction.o: src/RunAction.cc.o
+.PHONY : src/RunAction.o
+
+# target to build an object file
+src/RunAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.o
+.PHONY : src/RunAction.cc.o
+
+src/RunAction.i: src/RunAction.cc.i
+.PHONY : src/RunAction.i
+
+# target to preprocess a source file
+src/RunAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.i
+.PHONY : src/RunAction.cc.i
+
+src/RunAction.s: src/RunAction.cc.s
+.PHONY : src/RunAction.s
+
+# target to generate assembly for a file
+src/RunAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleLaBr3.dir/build.make CMakeFiles/exampleLaBr3.dir/src/RunAction.cc.s
+.PHONY : src/RunAction.cc.s
 
 src/SensitiveDetector.o: src/SensitiveDetector.cc.o
 .PHONY : src/SensitiveDetector.o
@@ -289,9 +361,18 @@ help:
 	@echo "... src/DetectorConstruction.o"
 	@echo "... src/DetectorConstruction.i"
 	@echo "... src/DetectorConstruction.s"
+	@echo "... src/EventAction.o"
+	@echo "... src/EventAction.i"
+	@echo "... src/EventAction.s"
+	@echo "... src/LaBr3Hit.o"
+	@echo "... src/LaBr3Hit.i"
+	@echo "... src/LaBr3Hit.s"
 	@echo "... src/PrimaryGeneratorAction.o"
 	@echo "... src/PrimaryGeneratorAction.i"
 	@echo "... src/PrimaryGeneratorAction.s"
+	@echo "... src/RunAction.o"
+	@echo "... src/RunAction.i"
+	@echo "... src/RunAction.s"
 	@echo "... src/SensitiveDetector.o"
 	@echo "... src/SensitiveDetector.i"
 	@echo "... src/SensitiveDetector.s"

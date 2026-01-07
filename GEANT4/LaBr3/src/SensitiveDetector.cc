@@ -5,15 +5,13 @@
 #include "G4SDManager.hh"
 #include "G4TouchableHistory.hh"
 
-SensitiveDetector::SensitiveDetector(G4String SDname) : G4VSensitiveDetector(SDname) {
-    G4cout<<"Creating SD with name " << SDname << G4endl;
-    G4String myCollectionName = "LaBr3HitCollection";
-
-    //Add myCollectionName to the vector of names available in the variable called CollectionName
-    //CollectionName is a protected data member of the base class G4VSensitiveDetector
-
-    collectionName.insert(myCollectionName);
+SensitiveDetector::SensitiveDetector(const G4String& SDname)
+    : G4VSensitiveDetector(SDname) 
+{
+    G4cout << "Creating SD with name " << SDname << G4endl;
+    collectionName.insert("LaBr3HitCollection");
 }
+
 
 SensitiveDetector::~SensitiveDetector(){}
 

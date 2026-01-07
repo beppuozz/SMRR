@@ -2,6 +2,7 @@
 
 /*================================================== INCLUDES ==================================================*/
 #include "DetectorConstruction.hh"
+#include "SensitiveDetector.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4Material.hh"               //per definire i materiali
 #include "G4Box.hh"                    //per costruire volumi a forma di scatola
@@ -15,11 +16,7 @@
 #include "G4Colour.hh"                 //per definire i colori
 #include "G4VPhysicalVolume.hh"
 #include "G4SystemOfUnits.hh"          
-
-/*
-#include "G4SensitiveDetector.hh"   //per i rivelatori sensibili
 #include "G4SDManager.hh"          //per gestire i rivelatori sensibili
-*/
 
 /*================================================== CONSTRUCTOR ==================================================*/
 DetectorConstruction::DetectorConstruction(): 
@@ -29,7 +26,7 @@ DetectorConstruction::DetectorConstruction():
     halfWorldLenght(0.5*km) //inizializzo la metà della dimensione del mondo a 0.5 km
     {
         //Create a detector messenger, defines custom UI commands for this class
-       // messenger = new DetectorMessenger(this); //this punta all'istanza corrente di DetectorConstruction
+        //messenger = new DetectorMessenger(this); //this punta all'istanza corrente di DetectorConstruction
 
         //Define materials
         DefineMaterials();
@@ -155,9 +152,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct_LaBr3Detector()
     SensitiveDetector* sensitive = 0;
     if (!sensitive) {
         G4cout << "DECLARING SENSITIVE DETECTOR" << G4endl;
-        sensitive = new SEnsitiveDetector("mydet/LaBr3");
+        sensitive = new SensitiveDetector("mydet/LaBr3");
         //Register the SD with the manager
-        G4SDManager::GetSDMPointer()->AddNewDetector(sensitive);
+        G4SDManager::GetSDMpointer()->AddNewDetector(sensitive);
         G4cout << "Sensitive Detector added! " << G4endl;
     }
 
