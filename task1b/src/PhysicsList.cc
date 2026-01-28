@@ -30,27 +30,29 @@ void PhysicsList::ConstructParticle()
   // This ensures that objects of these particle types will be
   // created in the program. 
 
+  // A priori sono abilitati solo i seguenti tipi di pseudo-particelle:
+  // Il Geantino e il ChargedGeantino
+
   // pseudo-particles
   G4Geantino::GeantinoDefinition();
   G4ChargedGeantino::ChargedGeantinoDefinition();
 
   // define gamma, e+, e- and some charged Hadrons
-  emPhysicsList->ConstructParticle();
+  
+  // gamma
+  // G4Gamma::Gamma();
 
-  /*
-// gamma
-  G4Gamma::Gamma();
-
-// leptons
-  G4Electron::Electron();
-  G4Positron::Positron();
-  G4MuonPlus::MuonPlus();
-  G4MuonMinus::MuonMinus();
-  */
+  // leptons
+  //  G4Electron::Electron();
+  //  G4Positron::Positron();
+ G4MuonPlus::MuonPlus();
+ G4MuonMinus::MuonMinus();
 
   // mesons
-  //  G4PionPlus::PionPlusDefinition();
-  //  G4PionMinus::PionMinusDefinition();
+ G4PionPlus::PionPlusDefinition();
+ G4PionMinus::PionMinusDefinition();
+
+ emPhysicsList->ConstructParticle();
 
 }
 
