@@ -1,6 +1,5 @@
-/GEANT4/geant4
-/GEANT4/geant4_build
-/GEANT4/geant4_install
-/build
-/ROOT
-/GEANT4/Tasks_solved_1
+geant4/*
+geant4_build/*
+geant4_install/*
+
+
