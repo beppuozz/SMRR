@@ -17,6 +17,7 @@
 #include "G4GeometryTolerance.hh"
 #include "G4GeometryManager.hh"
 #include "G4NistManager.hh"
+#include "G4SystemOfUnits.hh"
 
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"
@@ -64,7 +65,7 @@ void DetectorConstruction::ComputeParameters()
 	//of the geometry construction
 
 	// ** world **
-	halfWorldLength = 5* m;
+	halfWorldLength = 5*m;
 
 	// ** em calo **
 	emCaloCentralCrystalWidth = 22*mm;
@@ -139,7 +140,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 		white(1.0,1.0,1.0);
 
 	logicWorld -> SetVisAttributes(new G4VisAttributes(white));
-	logicWorld -> SetVisAttributes(G4VisAttributes::Invisible);
+	logicWorld -> SetVisAttributes(G4VisAttributes(false)); // invisible
     
 	//always return the physical World
 	//
@@ -344,6 +345,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructHadCalo()
 	G4Colour green(0,1,0);
 	G4Colour white(1,1,1);
 	hadCaloLogic->SetVisAttributes(new G4VisAttributes(green));
-	hadLayerLogic->SetVisAttributes(new G4VisAttributes(white));
+	hadLayerLogic->SetVisAttributes(new G4VisAttributes(false));
 	return hadCalo;
 }
