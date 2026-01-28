@@ -65,3 +65,7 @@ G4VPrimaryGenerator* PrimaryGeneratorAction::InitializeGPS()
   return gps;
 }
 
+/* La sorgente è un fascio monoenergetico di pi+ a 2GeV, centrato in (0,0,-80cm)
+   con profilo trasversale gaussiano di sigma 0.1mm e, 
+   direzione di propagazione lungo l'asse z con divergenza angolare gaussiana di sigma 0.1mrad.
+*/
