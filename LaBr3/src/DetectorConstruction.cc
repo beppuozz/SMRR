@@ -12,6 +12,8 @@
 #include "G4Colour.hh"
 #include "SensitiveDetector.hh" //Per estrapolare informazioni da una determinata parte del detector
 #include "G4SDManager.hh" //Manager delle parti rese sensitive
+#include "G4RunManager.hh" //Per aggiornare la geometria a run-time
+#include "G4GeometryManager.hh"
 
 DetectorConstruction::DetectorConstruction() :
     : vacuum(0),
@@ -66,6 +68,10 @@ void DetectorConstruction::ComputeParameters() {
     halfLaBr3Det_z = 7.762*cm;
 }
 
+void DetectorConstruction::UpdateGeometry() {
+    G4RunManager::GetRunManager()->DefineWorldVolume(Construct());   
+}
+
 G4VPhysicalVolume* DetectorConstruction::Construct() {
     G4GeometryManager::GetInstance()->SetWorldMaximumExtent(2*halfWorldLenght);
     G4cout << "Computed Tolerance = " << G4GeometryManager::GetInstance()->GetSurfaceTolerance()/mm << " mm" << G4endl;
@@ -109,9 +115,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct_LaBr3Detector() {
         brown(0.4, 0.4, 0.1);
 
     G4Tubs* solidLaBr3Det = new G4Tubs("solid_LaBr3Det", 0, RadiusLaBr3Det, halfLaBr3Det_z, 0*deg, 360*deg);
-    logicLaBr3 = new G4LogicalVolume(solid_LaBr3Det, LaBr3_Mat, "logical_LaBr3");
+    logicLaBr3 = new G4LogicalVolume(solidLaBr3Det, LaBr3_Mat, "logical_LaBr3");
     G4int LaBr3_copynum = 1;
-    physiLaBr3 = new G4PVPlacement(0, G4ThreeVector(0,0,0), logical_LaBr3, "physis_LaBr3", logicWorld, false, LaBr3_copynum);
+    physiLaBr3 = new G4PVPlacement(0, G4ThreeVector(0,0,0), logicLaBr3, "physis_LaBr3", logicWorld, false, LaBr3_copynum);
     logicLaBr3->SetVisAttributes(new G4VisAttributes(green));
 
 
@@ -119,4 +125,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct_LaBr3Detector() {
         Define LaBr3 detector as sensitive
         Define the UpdateGeometry method
         */
+}
+
+G4VPhysicalVolume* DetectorConstruction::SetPosition(G4ThreeVector pos) {
+    DetPosition = pos;
+    return physiLaBr3;
+}
+
+G4VPhysicalVolume* DetecotrConstruction::SetAngle(G4double angle) {
+    DetAngle = angle;
+    return physiLaBr3;
 }

@@ -22,11 +22,11 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
         G4VPhysicalVolume* Construct(); //Il metodo si deve chiamarare "Construct" e deve restituire un puntatore a G4VPhysicalVolume
         //è il metodo della classe G4UserDetectorConstruction che devo implementare obbligatoriamente.        
 
-        void UpdateGeometry(); //Non chiaro cosa faccia...
+        void UpdateGeometry(); //method to update the geometry
     
     private:
 
-        //----------------------------METHODS----------------------------
+    //----------------------------METHODS----------------------------
         //Definisco dei metodi ulteriori che mi permettano di modularizzare la logica esecutiva del programma
         //Un metodo per definire i materiali...uno per la geometria...
         //Define simulation materials
@@ -35,8 +35,10 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
         void ComputeParameters();
         //Construct the full geometry of the LaBr3 detector
         G4VPhysicalVolume* Construct_LaBr3Detector();
+        G4VPhysicalVolume* SetPosition(G4ThreeVector pos);
+        G4VPhysicalVolume* SetAngle(G4double angle);
 
-        //----------------------------MEMBERS----------------------------
+    //----------------------------MEMBERS----------------------------
         //Definisco (non specifico) i membri
         G4Material* vacuum;
         G4Material* LaBr3_Mat;
@@ -53,5 +55,10 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
         G4double RadiusLaBr3Det;
         G4double halfLaBr3Det_z;
 
+        //Messenger to handle user commands
         DetectorMessenger* messenger;
+
+        //
+        G4ThreeVector DetPosition; //position of the detector
+        G4double DetAngle; //rotation angle of the detector
 };
