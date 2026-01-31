@@ -35,8 +35,6 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
         void ComputeParameters();
         //Construct the full geometry of the LaBr3 detector
         G4VPhysicalVolume* Construct_LaBr3Detector();
-        G4VPhysicalVolume* SetPosition(G4ThreeVector pos);
-        G4VPhysicalVolume* SetAngle(G4double angle);
 
     //----------------------------MEMBERS----------------------------
         //Definisco (non specifico) i membri
@@ -61,4 +59,6 @@ class DetectorConstruction: public G4VUserDetectorConstruction //deve avere lo s
         //
         G4ThreeVector DetPosition; //position of the detector
         G4double DetAngle; //rotation angle of the detector
+
+        void SetPosition(G4TrheeVector* pos) {DetPosition = pos;}  //mi sa che è un metodo
 };

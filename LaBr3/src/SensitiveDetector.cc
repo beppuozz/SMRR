@@ -58,10 +58,37 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* R0Hist) 
     LaBr3Hit* aHit = nullptr;
 
         if(it != HitMap.end()) { //Hit already exists for this LaBr3 crystal
-            aHit = it->second;
+            aHit = it->second;  //Get the existing hit. second = the value (the hit)
         } else { //Create new hit
             aHit = new LaBr3Hit(LaBr3index);
-            HitMap[LaBr3index] = aHit; //Store the hit in the map
+            HitMap.insert(std::make_pair(LaBr3index, aHit)); //Insert new hit into the map
         }
+    
+    aHit->AddEdep(edep); //Add energy deposition to the hit (AddEdep method in LaBr3Hit.hh class)
 
 }
+
+void SensitiveDetector::Initialize(G4HCofThisEvent* HCE) {  //Called at the beginning of each event
+
+    //Create a new hit collection
+    HitCollection = new LaBr3HitCollection(GetName(), collectionName[0]); //"LaBr3HitCollection" is collectionName[0]
+
+    static G4int HCID = -1;
+    if(HCID < 0) HCID = GetCollectionID(0); //Get the ID of this collection
+    //Add this collection to the "Hit Collection of This Event"
+    HCE->AddHitsCollection(HCID, HitCollection);
+
+    HitMap.clear(); //Clear the hit map at the beginning of each event
+    trackMap.clear(); //Clear the track map at the beginning of each event
+}
+
+void SensitiveDetector::EndOfEvent(G4HCofThisEvent* HCE) { //Called at the end of each event
+    
+    //----------------Debug printout----------------
+    G4cout << "EndofEvent method of SensitiveDetector '" << GetName() << "' called." << G4endl;
+    /*for (size_t i = 0; i < HitCollection->GetSize(); ++i) {
+        G4cout << i << G4endl;
+            (*HitCollection)[i]->Print(); //Print each hit in this collection
+    }*/
+    HitCollection->PrintAllHits(); //Print all hits in this collection
+}    

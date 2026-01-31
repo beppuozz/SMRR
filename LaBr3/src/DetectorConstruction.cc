@@ -14,6 +14,9 @@
 #include "G4SDManager.hh" //Manager delle parti rese sensitive
 #include "G4RunManager.hh" //Per aggiornare la geometria a run-time
 #include "G4GeometryManager.hh"
+#include "G4PhysicalVolumeStore.hh"
+#include "G4LogicalVolumeStore.hh"
+#include "G4SolidStore.hh"
 
 DetectorConstruction::DetectorConstruction() :
     : vacuum(0),
@@ -69,7 +72,13 @@ void DetectorConstruction::ComputeParameters() {
 }
 
 void DetectorConstruction::UpdateGeometry() {
-    G4RunManager::GetRunManager()->DefineWorldVolume(Construct());   
+    //Cleanup old geometry
+    G4GeometryManager::GetInstance()->OpenGeometry();
+    G4PhysicalVolumeStore::GetInstance()->Clean();
+    G4LogicalVolumeStore::GetInstance()->Clean();
+    G4SolidStore::GetInstance()->Clean();   
+    //Redefine the World Volume and call again the Construct() method with the updated geometry
+    G4RunManager::GetRunManager()->DefineWorldVolume(Construct());
 }
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
@@ -85,7 +94,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
         0); // Optimisation
         
     G4VPhysicalVolume* physiWorld = new G4PVPlacement(0, //no rotaion
-                                                    G4ThreeVector(0,0,0), //Coordinates
+                                                    DetPosition, //ThreeVector of coordinates
                                                     logicWorld,
                                                     "World",
                                                     0, //Its mother volume!
@@ -120,11 +129,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct_LaBr3Detector() {
     physiLaBr3 = new G4PVPlacement(0, G4ThreeVector(0,0,0), logicLaBr3, "physis_LaBr3", logicWorld, false, LaBr3_copynum);
     logicLaBr3->SetVisAttributes(new G4VisAttributes(green));
 
+    //Define LaBr3 as sensitive detector
+    SensitiveDetector* sensitive = 0;
+    if (!sensitive){
+        G4cout << "Declearing Sensitive Detector" <<endl;
+        sensitive = new SensitiveDetector("/myDet/LaBr3");
+        G4SDManager::GetSDMpointer()->AddNewDetector(sensitive); //We add the sensitive detector to the manager
+        G4cout << "Sensitive Detector added " << G4endl;
+    }
+    logicLaBr3->SetSensitiveDetector(sensitive); //We set the logical volume as sensitive
 
-    /* To be done:
-        Define LaBr3 detector as sensitive
-        Define the UpdateGeometry method
-        */
+    return physiLaBr3;
 }
 
 G4VPhysicalVolume* DetectorConstruction::SetPosition(G4ThreeVector pos) {
@@ -136,3 +151,4 @@ G4VPhysicalVolume* DetecotrConstruction::SetAngle(G4double angle) {
     DetAngle = angle;
     return physiLaBr3;
 }
+
