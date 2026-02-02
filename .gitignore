@@ -1,7 +1,7 @@
-geant4/*
-geant4_build/*
-geant4_install/*
-root_src/*
-root_install/*
-root_build/*
+/geant4
+/geant4_build
+/geant4_install
+/root_src
+/root_install
+/root_build
 
