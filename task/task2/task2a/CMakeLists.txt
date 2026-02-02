@@ -19,6 +19,9 @@ else()
 endif()
 set(G4NEUTRONHP_USE_ONLY_PHOTONEVAPORATION ON)
 
+find_package(ROOT REQUIRED)
+include_directories(${ROOT_INCLUDE_DIRS})
+
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions
 # Setup include directory for this project
