@@ -1,20 +1,22 @@
+// $Id: DetectorConstruction.hh 33 2010-01-14 17:08:18Z adotti $
 #ifndef DetectorConstruction_h
 #define DetectorConstruction_h 1
 
-/*!
-\file
-\brief defines mandatory user class DetectorConstruction
-*/
+/**
+ * @file
+ * @brief Defines mandatory user class DetectorConstruction.
+ */
 
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4ThreeVector.hh"
-#include "G4Element.hh"
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
-class DetectorMessenger;
+class G4FieldManager;
+
+//class DetectorMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -41,9 +43,6 @@ public:
   //! Update geometry
   void UpdateGeometry();
 
-  //! Construct device under test
-  G4VPhysicalVolume* ConstructDeviceUnderTest();
-
   //! \name some simple set & get functions
   //@{
   G4ThreeVector FirstSensorPosition() const  { return posFirstSensor; }
@@ -54,15 +53,25 @@ public:
   G4ThreeVector SetSecondSensorPosition(const G4ThreeVector & pos) { return posSecondSensor=pos; }
   G4ThreeVector SetThirdSensorPosition(const G4ThreeVector & pos) { return posThirdSensor=pos; }
 
-  G4double DUTangle() const { return dutTheta; }
-  G4double SetDUTangle(const G4double theta)  { return dutTheta=theta; }
+  //G4bool   IsDUTSetup() const { return isSecondPlaneDUT; }
+  //G4bool   SetDUTSetup( const G4bool& flag ) { return isSecondPlaneDUT=flag; }
+  //G4double DUTangle() const { return dutTheta; }
+  //G4double SetDUTangle(const G4double theta)  { return dutTheta=theta; }
   //@}
 private:
   //! define needed materials
   void DefineMaterials();
   //! initialize geometry parameters
   void ComputeParameters();
+  //! Construct geometry of the Beam Telescope
+  G4VPhysicalVolume* ConstructTelescope();
+  //! Construct geometry of the Electromagnetic Calorimeter
+  G4VPhysicalVolume* ConstructEMCalo();
+  //! Construct geometry of the hadronic Calorimeter
+  G4VPhysicalVolume* ConstructHadCalo();
 
+  //! Define local magnetic field
+  G4FieldManager* GetLocalFieldManager();
 private:
 
   //! \name Materials
@@ -70,51 +79,64 @@ private:
   G4Material* air;
   G4Material* silicon;
   G4Material* vacuum;
-
-  G4Material* GaAs; //task1 - Exercise 4
-  G4Element* Ga; 
-  G4Element* As;
+  G4Material* pbw04;
+  G4Material* fe;
+  G4Material* lar;
   //@}
 
-  //! \name Geometry
+  //! \name global mother volume
   //@{
-
-  //! global mother volume
   G4LogicalVolume * logicWorld;
+  G4double halfWorldLength;
+  //@}
 
+  //! \name Geometry tracker
+  //@{
   //! 1st telescope plane
   G4VPhysicalVolume* physiFirstSensor;
   //! 2nd telescope plane
   G4VPhysicalVolume* physiSecondSensor;
   //! 3rd telescope plane
   G4VPhysicalVolume* physiThirdSensor;
-
   //! subdivisions of a plane in sensor strips
   G4VPhysicalVolume * physiSensorStrip; 
-  //! subdivisions of the DUT in sensor strips
-  G4VPhysicalVolume * physiSensorStripDUT; 
   //@}
 
-  //! \name Parameters
+  //! \name Parameters for tracker
   //@{
-  G4double halfWorldLength;
-
   G4int noOfSensorStrips;
   G4double sensorStripLength;
   G4double sensorThickness;
-
   G4double teleStripPitch;
   G4ThreeVector posFirstSensor;
   G4ThreeVector posSecondSensor;
   G4ThreeVector posThirdSensor;
-
-  G4double dutStripPitch;
-  G4double dutTheta;
   //@}
 
-  //! \name UI Messenger 
+  //! \name Geometry em calo
   //@{
-  DetectorMessenger * messenger;
+  G4VPhysicalVolume* emCaloCentralCrystal;
+  G4VPhysicalVolume* emCalo;
+  //@}
+  //! \name Parameters for em calo
+  //@{
+  G4double emCaloLength;
+  G4double emCaloWidth;
+  G4double emCaloCentralCrystalWidth;
+  G4ThreeVector posEmCalo;
+  //@}
+
+  //! \name Geometry had calo
+  //@{
+  G4VPhysicalVolume* hadCalo;
+  //@}
+  //! \name Parameters for had calo
+  //@{
+  G4double hadCaloLArThickness;
+  G4double hadCaloFeThickness;
+  G4double hadCaloRadius;
+  G4int    hadCaloNumLayers;
+  G4ThreeVector posHadCalo;
   //@}
 };
 

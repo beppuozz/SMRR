@@ -46,7 +46,7 @@ Follow this --> https://geant4.web.cern.ch/documentation/pipelines/master/bfad_h
 ```bash
 $ mkdir example_build
 $ cd example_build
-$ cmake -DCMAKE_PREFIX_PATH=/home/beppuozz/SMRR/geant4_install /home/beppuozz/SMRR/task1/task1b
+$ cmake -DCMAKE_PREFIX_PATH=/home/beppuozz/SMRR/geant4_install /home/beppuozz/SMRR/task/task1/task1b
 $ make -j$(nproc) VERBOSE=1
 ```
 
@@ -64,7 +64,7 @@ $ export G4LEDATA=/home/ubuntu/SMRR/GEANT4/geant4_install/share/Geant4/data/G4EM
 ---
 ### How to execute
 ```bash
-$ source /home/ricca/SMRR/GEANT4/geant4_install/bin/geant4.sh
+$ source /home/beppuozz/SMRR/geant4_install/bin/geant4.sh
 $ ./example
 ```
 You can make Geant4’s environment load automatically, so you don’t have to type "source /home/ricca/SMRR/GEANT4/geant4_install/bin/geant4.sh" every time.

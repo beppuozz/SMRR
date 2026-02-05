@@ -1,0 +1,8 @@
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/exampletask2b.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/task2b.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/edit_cache.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/rebuild_cache.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/list_install_components.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/install.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/install/local.dir
+/home/beppuozz/SMRR/task/task2/task2b_build/CMakeFiles/install/strip.dir

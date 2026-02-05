@@ -1,0 +1,8 @@
+/home/beppuozz/SMRR/task/task1/CMakeFiles/exampletask1b.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/task1b.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/edit_cache.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/rebuild_cache.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/list_install_components.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/install.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/install/local.dir
+/home/beppuozz/SMRR/task/task1/CMakeFiles/install/strip.dir

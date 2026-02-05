@@ -1,20 +1,20 @@
+// $Id: DetectorConstruction.hh 33 2010-01-14 17:08:18Z adotti $
+/**
+ * @file
+ * @brief Defines mandatory user class DetectorConstruction.
+ */
+
 #ifndef DetectorConstruction_h
 #define DetectorConstruction_h 1
-
-/*!
-\file
-\brief defines mandatory user class DetectorConstruction
-*/
 
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4ThreeVector.hh"
-#include "G4Element.hh"
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
-class DetectorMessenger;
+//class DetectorMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -33,35 +33,34 @@ public:
   //! Constructor
   DetectorConstruction();
   //! Destructor
-  ~DetectorConstruction();
-public:
+  virtual ~DetectorConstruction();
+
   //! Construct geometry of the setup
-  G4VPhysicalVolume* Construct();
+  virtual G4VPhysicalVolume* Construct();
 
   //! Update geometry
   void UpdateGeometry();
 
-  //! Construct device under test
-  G4VPhysicalVolume* ConstructDeviceUnderTest();
-
   //! \name some simple set & get functions
   //@{
-  G4ThreeVector FirstSensorPosition() const  { return posFirstSensor; }
-  G4ThreeVector SecondSensorPosition() const { return posSecondSensor; }
-  G4ThreeVector ThirdSensorPosition() const { return posThirdSensor; }
+  G4double FirstSensorPosition()  const { return zFirstSensor; }
+  G4double SecondSensorPosition() const { return zSecondSensor; }
+  G4double ThirdSensorPosition()  const { return zThirdSensor; }
 
-  G4ThreeVector SetFirstSensorPosition(const G4ThreeVector & pos) { return posFirstSensor=pos; }
-  G4ThreeVector SetSecondSensorPosition(const G4ThreeVector & pos) { return posSecondSensor=pos; }
-  G4ThreeVector SetThirdSensorPosition(const G4ThreeVector & pos) { return posThirdSensor=pos; }
+  G4double SetFirstSensorPosition(G4double z)  { return zFirstSensor=z; }
+  G4double SetSecondSensorPosition(G4double z) { return zSecondSensor=z; }
+  G4double SetThirdSensorPosition(G4double z)  { return zThirdSensor=z; }
 
-  G4double DUTangle() const { return dutTheta; }
-  G4double SetDUTangle(const G4double theta)  { return dutTheta=theta; }
   //@}
 private:
   //! define needed materials
   void DefineMaterials();
   //! initialize geometry parameters
   void ComputeParameters();
+  //! Construct geometry of the Beam Telescope
+  G4VPhysicalVolume* ConstructTelescope();
+  //! Construct geometry of the Electromagnetic Calorimeter
+  G4VPhysicalVolume* ConstructEMCalo();
 
 private:
 
@@ -70,52 +69,52 @@ private:
   G4Material* air;
   G4Material* silicon;
   G4Material* vacuum;
-
-  G4Material* GaAs; //task1 - Exercise 4
-  G4Element* Ga; 
-  G4Element* As;
+  G4Material* pbw04;
   //@}
 
-  //! \name Geometry
+  //! \name global mother volume
   //@{
-
-  //! global mother volume
   G4LogicalVolume * logicWorld;
+  G4double halfWorldLength;
+  G4double gap;
+  //@}
 
+  //! \name Geometry tracker
+  //@{
   //! 1st telescope plane
   G4VPhysicalVolume* physiFirstSensor;
   //! 2nd telescope plane
   G4VPhysicalVolume* physiSecondSensor;
   //! 3rd telescope plane
   G4VPhysicalVolume* physiThirdSensor;
-
   //! subdivisions of a plane in sensor strips
   G4VPhysicalVolume * physiSensorStrip; 
-  //! subdivisions of the DUT in sensor strips
-  G4VPhysicalVolume * physiSensorStripDUT; 
   //@}
 
-  //! \name Parameters
+  //! \name Parameters for tracker
   //@{
-  G4double halfWorldLength;
-
   G4int noOfSensorStrips;
   G4double sensorStripLength;
   G4double sensorThickness;
-
   G4double teleStripPitch;
-  G4ThreeVector posFirstSensor;
-  G4ThreeVector posSecondSensor;
-  G4ThreeVector posThirdSensor;
-
-  G4double dutStripPitch;
-  G4double dutTheta;
+  G4double zFirstSensor;
+  G4double zSecondSensor;
+  G4double zThirdSensor;
   //@}
 
-  //! \name UI Messenger 
+  //! \name Geometry em calo
   //@{
-  DetectorMessenger * messenger;
+  G4VPhysicalVolume* emCaloCentralCrystal;
+  G4VPhysicalVolume* emCalo;
   //@}
+  //! \name Parameters for em calo
+  //@{
+  G4double emCaloLength;
+  G4double emCaloWidth;
+  G4double emCaloCentralCrystalWidth;
+  G4double emCaloZ;
+  //@}
+
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
