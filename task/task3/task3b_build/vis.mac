@@ -36,17 +36,20 @@
 /vis/scene/endOfEventAction accumulate
 #
 
-/gps/energy 20 MeV
-/run/beamOn 3000
+#/gps/energy 20 MeV
+#/run/beamOn 3000
 
-/gps/energy 40 MeV
-/run/beamOn 3000
+#/gps/energy 40 MeV
+#/run/beamOn 3000
 
-/gps/energy 50 MeV
-/run/beamOn 3000
+#/gps/energy 50 MeV
+#/run/beamOn 3000
 
-/gps/energy 75 MeV
-/run/beamOn 3000
+#/gps/energy 75 MeV
+#/run/beamOn 3000
 
-/gps/energy 100 MeV
-/run/beamOn 3000
+#/gps/energy 100 MeV
+#/run/beamOn 3000
+
+gps/particle pi-
+run/beamOn 1
