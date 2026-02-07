@@ -11,8 +11,8 @@
 # Create a scene handler for a specific graphics system
 # (Edit the next line(s) to choose another graphics system)
 #
-/vis/open OGLSX 600x600-0+0
-#/vis/open OGLSQt 600x600-0+0
+#/vis/open OGLIX 600x600-0+0
+#/vis/open OGLIQt 600x600-0+0
 #
 #/vis/open OGLIXm
 #####/vis/open OGLSXm
@@ -22,10 +22,10 @@
 #
 # draw scene
 #
-/vis/drawVolume
+#/vis/drawVolume
 
-/vis/viewer/set/viewpointThetaPhi 90 180 deg
-/vis/viewer/zoom 0.8
+#/vis/viewer/set/viewpointThetaPhi 90 180 deg
+#/vis/viewer/zoom 0.8
 #
 # for drawing the tracks
 /vis/scene/add/trajectories
@@ -35,4 +35,4 @@
 # (if you prefer refreshing each event, comment out next line)
 /vis/scene/endOfEventAction accumulate
 #
-#/run/beamOn 10
+/run/beamOn 3000

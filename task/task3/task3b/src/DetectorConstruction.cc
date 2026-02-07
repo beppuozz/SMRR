@@ -23,6 +23,7 @@
 
 //#include "SensitiveDetector.hh"
 #include "G4SDManager.hh"
+#include "G4SystemOfUnits.hh"
 
 DetectorConstruction::DetectorConstruction()
 {
@@ -50,7 +51,7 @@ void DetectorConstruction::DefineMaterials()
 	air     = man->FindOrBuildMaterial("G4_AIR");
 	silicon = man->FindOrBuildMaterial("G4_Si");
 	//Em calo
-	pbw04   = man->FindOrBuildMaterial("G4_PbWO4");
+	pbw04   = silicon;//man->FindOrBuildMaterial("G4_PbWO4");
 	//Had calo
 	// Liquid Argon has a  X0 = 10.971 cm  and  lambda_I = 65.769 cm.
 	//G4double density = 1.4*g/cm3;
@@ -69,13 +70,14 @@ void DetectorConstruction::ComputeParameters()
 	//of the geometry construction
 
 	// ** world **
-	halfWorldLength = 5* m;
+	halfWorldLength = 5*m;
 
 	// ** em calo **
 	emCaloCentralCrystalWidth = 22*mm;
 	emCaloWidth               = 110*mm;
 	emCaloLength              = 230*mm;
 	posEmCalo = -G4ThreeVector(0,0,emCaloLength/2);
+	
 
 	// ** Si tracker **
 	noOfSensorStrips = 600;//48;
@@ -126,10 +128,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 
 	//Construction of the three si plane is actually done here
-	//	ConstructTelescope();
+	ConstructTelescope();
 
 	//Construction of the EM calorimeter
-	//	ConstructEMCalo();
+	ConstructEMCalo();
 
 	//Construction of the Had calorimeter
 	ConstructHadCalo();
@@ -142,8 +144,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 		brown(0.4,0.4,0.1),
 		white(1.0,1.0,1.0);
 
-	logicWorld -> SetVisAttributes(new G4VisAttributes(white));
-	logicWorld -> SetVisAttributes(G4VisAttributes::Invisible);
+	logicWorld -> SetVisAttributes(new G4VisAttributes(false));
     
 	//always return the physical World
 	//
@@ -301,14 +302,15 @@ G4VPhysicalVolume* DetectorConstruction::ConstructHadCalo()
 	//  - Uncomment the line below to add a small uniform magnetic field (35 mT)
 	//    to the detector volume
 	// ********************************************************************************
-	// hadCaloLogic->SetFieldManager(GetLocalFieldManager(),true);
+	 hadCaloLogic->SetFieldManager(GetLocalFieldManager(),true);
 	// ---
 
 	G4Colour green(0,1,0);
 	G4Colour white(1,1,1);
+	G4Colour brown(0.4,0.4,0.1);
 	hadCaloLogic->SetVisAttributes(new G4VisAttributes(green));
 	hadLayerLogic->SetVisAttributes(new G4VisAttributes(white));
-	//hadLayerLogic->SetVisAttributes(G4VisAttributes::Invisible);
+	hadLayerLogic->SetVisAttributes(new G4VisAttributes(brown));
 	return hadCalo;
 }
 
