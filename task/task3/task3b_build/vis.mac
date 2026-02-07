@@ -52,4 +52,5 @@
 #/run/beamOn 3000
 
 gps/particle pi-
+gps/energy 100 MeV
 run/beamOn 1

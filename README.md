@@ -89,8 +89,8 @@ If it prints something sensible → ✅ done.
 
 ### To compile with ROOT
 ```bash
-$ cmake -DCMAKE_PREFIX_PATH="/home/ubuntu/SMRR/GEANT4/geant4_install;/home/ubuntu/SMRR/ROOT/root_install" \
-      /home/ubuntu/SMRR/GEANT4/geant4/examples/basic/B1
+$ cmake -DCMAKE_PREFIX_PATH="/home/beppuozz/SMRR/geant4_install;/home/beppuozz/SMRR/root_install" \
+      /home/beppuozz/SMRR/task/.../task4a
 $ make -j$(nproc) VERBOSE=1
 ```
 
